@@ -1,11 +1,13 @@
-/// Standard CSS named colors.
-///
-/// All 140 standard web colors as defined by CSS Color Module Level 4.
-///
-/// ```swift
-/// let color = Color.named(.coral)
-/// let hex = NamedColor.steelBlue.hex  // "#4682B4"
-/// ```
+/**
+ Standard CSS named colors.
+
+ All 140 standard web colors as defined by CSS Color Module Level 4.
+
+ ```swift
+ let color = Color.named(.coral)
+ let hex = NamedColor.steelBlue.hex  // "#4682B4"
+ ```
+ */
 public enum NamedColor: String, CaseIterable, Sendable {
     // Reds
     case indianRed = "CD5C5C"
@@ -186,24 +188,28 @@ public enum NamedColor: String, CaseIterable, Sendable {
 // MARK: - Color Extension
 
 extension Color {
-    /// Creates a color from a named CSS color.
-    ///
-    /// ```swift
-    /// let coral = Color.named(.coral)
-    /// let navy = Color.named(.navy)
-    /// ```
+    /**
+     Creates a color from a named CSS color.
+
+     ```swift
+     let coral = Color.named(.coral)
+     let navy = Color.named(.navy)
+     ```
+     */
     public static func named(_ name: NamedColor) -> Color {
         name.color
     }
 
-    /// Creates a color from a CSS color name string.
-    ///
-    /// Case-insensitive lookup of CSS color names.
-    ///
-    /// ```swift
-    /// let coral = Color(name: "coral")
-    /// let navy = Color(name: "Navy")  // case-insensitive
-    /// ```
+    /**
+     Creates a color from a CSS color name string.
+
+     Case-insensitive lookup of CSS color names.
+
+     ```swift
+     let coral = Color(name: "coral")
+     let navy = Color(name: "Navy")  // case-insensitive
+     ```
+     */
     public init?(name: String) {
         let lowercased = name.lowercased()
         guard let named = NamedColor.allCases.first(where: {

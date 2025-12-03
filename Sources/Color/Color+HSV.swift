@@ -2,8 +2,10 @@ import Foundation
 
 // MARK: - HSV Color Space
 
-/// HSV (Hue, Saturation, Value) representation.
-/// Also known as HSB (Hue, Saturation, Brightness).
+/**
+ HSV (Hue, Saturation, Value) representation.
+ Also known as HSB (Hue, Saturation, Brightness).
+ */
 public struct HSV: Sendable, Hashable {
     /// Hue angle in degrees (0-360)
     public let hue: Double
@@ -23,12 +25,14 @@ public struct HSV: Sendable, Hashable {
 }
 
 extension Color {
-    /// The color in HSV representation.
-    ///
-    /// ```swift
-    /// let red = Color.red
-    /// print(red.hsv)  // HSV(h: 0, s: 1.0, v: 1.0)
-    /// ```
+    /**
+     The color in HSV representation.
+
+     ```swift
+     let red = Color.red
+     print(red.hsv)  // HSV(h: 0, s: 1.0, v: 1.0)
+     ```
+     */
     public var hsv: HSV {
         let maxC = max(red, green, blue)
         let minC = min(red, green, blue)
@@ -63,23 +67,27 @@ extension Color {
         return HSV(h: h, s: s, v: v)
     }
 
-    /// Creates a color from HSV values.
-    ///
-    /// - Parameters:
-    ///   - h: Hue angle in degrees (0-360)
-    ///   - s: Saturation (0.0 to 1.0)
-    ///   - v: Value/Brightness (0.0 to 1.0)
-    ///   - a: Alpha (0.0 to 1.0), defaults to 1.0
+    /**
+     Creates a color from HSV values.
+
+     - Parameters:
+       - h: Hue angle in degrees (0-360)
+       - s: Saturation (0.0 to 1.0)
+       - v: Value/Brightness (0.0 to 1.0)
+       - a: Alpha (0.0 to 1.0), defaults to 1.0
+     */
     public init(h: Double, s: Double, v: Double, a: Double = 1.0) {
         let hsv = HSV(h: h, s: s, v: v)
         self.init(hsv: hsv, alpha: a)
     }
 
-    /// Creates a color from an HSV value.
-    ///
-    /// - Parameters:
-    ///   - hsv: HSV color value
-    ///   - alpha: Alpha component, defaults to 1.0
+    /**
+     Creates a color from an HSV value.
+
+     - Parameters:
+       - hsv: HSV color value
+       - alpha: Alpha component, defaults to 1.0
+     */
     public init(hsv: HSV, alpha: Double = 1.0) {
         let h = hsv.hue
         let s = hsv.saturation

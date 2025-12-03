@@ -2,10 +2,12 @@ import Foundation
 
 // MARK: - CIE LAB Color Space
 
-/// CIE L*a*b* color representation.
-///
-/// LAB is a perceptually uniform color space where equal distances
-/// represent roughly equal perceived color differences.
+/**
+ CIE L*a*b* color representation.
+
+ LAB is a perceptually uniform color space where equal distances
+ represent roughly equal perceived color differences.
+ */
 public struct LAB: Sendable, Hashable {
     /// Lightness (0 to 100)
     public let lightness: Double
@@ -102,12 +104,14 @@ extension Color {
         self.init(r: r, g: g, b: b, a: alpha)
     }
 
-    /// The color in CIE L*a*b* representation.
-    ///
-    /// ```swift
-    /// let lab = Color.red.lab
-    /// print(lab)  // LAB(l: 53.2, a: 80.1, b: 67.2)
-    /// ```
+    /**
+     The color in CIE L*a*b* representation.
+
+     ```swift
+     let lab = Color.red.lab
+     print(lab)  // LAB(l: 53.2, a: 80.1, b: 67.2)
+     ```
+     */
     public var lab: LAB {
         let xyz = self.xyz
 
@@ -131,13 +135,15 @@ extension Color {
         )
     }
 
-    /// Creates a color from CIE L*a*b* values.
-    ///
-    /// - Parameters:
-    ///   - l: Lightness (0 to 100)
-    ///   - a: Green-red component (-128 to 127)
-    ///   - b: Blue-yellow component (-128 to 127)
-    ///   - alpha: Alpha component (0.0 to 1.0)
+    /**
+     Creates a color from CIE L*a*b* values.
+
+     - Parameters:
+       - l: Lightness (0 to 100)
+       - a: Green-red component (-128 to 127)
+       - b: Blue-yellow component (-128 to 127)
+       - alpha: Alpha component (0.0 to 1.0)
+     */
     public init(l: Double, a: Double, b: Double, alpha: Double = 1.0) {
         let lab = LAB(l: l, a: a, b: b)
         self.init(lab: lab, alpha: alpha)
@@ -171,14 +177,16 @@ extension Color {
 // MARK: - LCH Conversion
 
 extension Color {
-    /// The color in CIE LCH representation (cylindrical LAB).
-    ///
-    /// LCH is useful for color manipulation because hue is directly accessible.
-    ///
-    /// ```swift
-    /// let lch = Color.red.lch
-    /// print(lch)  // LCH(l: 53.2, c: 104.6, h: 40.0)
-    /// ```
+    /**
+     The color in CIE LCH representation (cylindrical LAB).
+
+     LCH is useful for color manipulation because hue is directly accessible.
+
+     ```swift
+     let lch = Color.red.lch
+     print(lch)  // LCH(l: 53.2, c: 104.6, h: 40.0)
+     ```
+     */
     public var lch: LCH {
         let lab = self.lab
         let c = sqrt(lab.a * lab.a + lab.b * lab.b)
@@ -188,13 +196,15 @@ extension Color {
         return LCH(l: lab.lightness, c: c, h: h)
     }
 
-    /// Creates a color from CIE LCH values.
-    ///
-    /// - Parameters:
-    ///   - l: Lightness (0 to 100)
-    ///   - c: Chroma (saturation)
-    ///   - h: Hue angle in degrees (0 to 360)
-    ///   - alpha: Alpha component (0.0 to 1.0)
+    /**
+     Creates a color from CIE LCH values.
+
+     - Parameters:
+       - l: Lightness (0 to 100)
+       - c: Chroma (saturation)
+       - h: Hue angle in degrees (0 to 360)
+       - alpha: Alpha component (0.0 to 1.0)
+     */
     public init(l: Double, c: Double, h: Double, alpha: Double = 1.0) {
         let lch = LCH(l: l, c: c, h: h)
         self.init(lch: lch, alpha: alpha)
@@ -215,13 +225,15 @@ extension Color {
 // MARK: - Perceptual Operations
 
 extension Color {
-    /// Returns the perceptual difference (Delta E) between two colors.
-    ///
-    /// Uses CIE76 formula. Values < 1 are imperceptible,
-    /// 1-2 are barely noticeable, > 100 are completely different.
-    ///
-    /// - Parameter other: Color to compare with
-    /// - Returns: Delta E value
+    /**
+     Returns the perceptual difference (Delta E) between two colors.
+
+     Uses CIE76 formula. Values < 1 are imperceptible,
+     1-2 are barely noticeable, > 100 are completely different.
+
+     - Parameter other: Color to compare with
+     - Returns: Delta E value
+     */
     public func deltaE(from other: Color) -> Double {
         let lab1 = self.lab
         let lab2 = other.lab
@@ -233,14 +245,16 @@ extension Color {
         return sqrt(dL * dL + dA * dA + dB * dB)
     }
 
-    /// Mixes two colors in perceptually uniform LAB space.
-    ///
-    /// Produces more natural gradients than RGB mixing.
-    ///
-    /// - Parameters:
-    ///   - other: Color to mix with
-    ///   - ratio: Mix ratio (0.0 = this color, 1.0 = other color)
-    /// - Returns: Mixed color
+    /**
+     Mixes two colors in perceptually uniform LAB space.
+
+     Produces more natural gradients than RGB mixing.
+
+     - Parameters:
+       - other: Color to mix with
+       - ratio: Mix ratio (0.0 = this color, 1.0 = other color)
+     - Returns: Mixed color
+     */
     public func mixLAB(with other: Color, ratio: Double = 0.5) -> Color {
         let t = min(max(ratio, 0), 1)
         let lab1 = self.lab

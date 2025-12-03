@@ -1,13 +1,15 @@
-/// A color represented in RGB color space.
-///
-/// All component values are stored as `Double` in the range 0.0 to 1.0.
-/// Values outside this range are clamped during initialization.
-///
-/// ```swift
-/// let red = Color(r: 1, g: 0, b: 0)
-/// let blue = Color(r: 0, g: 0, b: 1)
-/// let purple = red.mix(with: blue)
-/// ```
+/**
+ A color represented in RGB color space.
+
+ All component values are stored as `Double` in the range 0.0 to 1.0.
+ Values outside this range are clamped during initialization.
+
+ ```swift
+ let red = Color(r: 1, g: 0, b: 0)
+ let blue = Color(r: 0, g: 0, b: 1)
+ let purple = red.mix(with: blue)
+ ```
+ */
 public struct Color: Sendable, Hashable, Codable {
     /// Red component (0.0 to 1.0)
     public let red: Double
@@ -21,13 +23,15 @@ public struct Color: Sendable, Hashable, Codable {
     /// Alpha component (0.0 to 1.0)
     public let alpha: Double
 
-    /// Creates a color from RGB components.
-    ///
-    /// - Parameters:
-    ///   - r: Red component (0.0 to 1.0)
-    ///   - g: Green component (0.0 to 1.0)
-    ///   - b: Blue component (0.0 to 1.0)
-    ///   - a: Alpha component (0.0 to 1.0), defaults to 1.0
+    /**
+     Creates a color from RGB components.
+
+     - Parameters:
+       - r: Red component (0.0 to 1.0)
+       - g: Green component (0.0 to 1.0)
+       - b: Blue component (0.0 to 1.0)
+       - a: Alpha component (0.0 to 1.0), defaults to 1.0
+     */
     public init(r: Double, g: Double, b: Double, a: Double = 1.0) {
         self.red = Self.clamp(r)
         self.green = Self.clamp(g)
@@ -35,13 +39,15 @@ public struct Color: Sendable, Hashable, Codable {
         self.alpha = Self.clamp(a)
     }
 
-    /// Creates a color from 8-bit RGB values.
-    ///
-    /// - Parameters:
-    ///   - r: Red component (0 to 255)
-    ///   - g: Green component (0 to 255)
-    ///   - b: Blue component (0 to 255)
-    ///   - a: Alpha component (0 to 255), defaults to 255
+    /**
+     Creates a color from 8-bit RGB values.
+
+     - Parameters:
+       - r: Red component (0 to 255)
+       - g: Green component (0 to 255)
+       - b: Blue component (0 to 255)
+       - a: Alpha component (0 to 255), defaults to 255
+     */
     public init(r: Int, g: Int, b: Int, a: Int = 255) {
         self.init(
             r: Double(r) / 255.0,
@@ -116,10 +122,12 @@ extension Color {
 // MARK: - With Alpha
 
 extension Color {
-    /// Returns a new color with the specified alpha value.
-    ///
-    /// - Parameter alpha: New alpha value (0.0 to 1.0)
-    /// - Returns: A new color with the given alpha
+    /**
+     Returns a new color with the specified alpha value.
+
+     - Parameter alpha: New alpha value (0.0 to 1.0)
+     - Returns: A new color with the given alpha
+     */
     public func withAlpha(_ alpha: Double) -> Color {
         Color(r: red, g: green, b: blue, a: alpha)
     }

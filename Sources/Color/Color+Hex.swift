@@ -3,25 +3,27 @@ import Foundation
 // MARK: - Hex String Parsing
 
 extension Color {
-    /// Creates a color from a hex string.
-    ///
-    /// Supports formats:
-    /// - `#RGB` - 3 character shorthand
-    /// - `#RGBA` - 4 character shorthand with alpha
-    /// - `#RRGGBB` - 6 character standard
-    /// - `#RRGGBBAA` - 8 character with alpha
-    /// - Same formats without `#` prefix
-    /// - `0x` prefix also supported
-    ///
-    /// ```swift
-    /// let red = Color(hex: "#FF0000")
-    /// let blue = Color(hex: "0000FF")
-    /// let green = Color(hex: "#0F0")  // shorthand
-    /// let transparent = Color(hex: "#FF000080")  // 50% alpha
-    /// ```
-    ///
-    /// - Parameter hex: Hex color string
-    /// - Returns: Color if parsing succeeds, nil otherwise
+    /**
+     Creates a color from a hex string.
+
+     Supports formats:
+     - `#RGB` - 3 character shorthand
+     - `#RGBA` - 4 character shorthand with alpha
+     - `#RRGGBB` - 6 character standard
+     - `#RRGGBBAA` - 8 character with alpha
+     - Same formats without `#` prefix
+     - `0x` prefix also supported
+
+     ```swift
+     let red = Color(hex: "#FF0000")
+     let blue = Color(hex: "0000FF")
+     let green = Color(hex: "#0F0")  // shorthand
+     let transparent = Color(hex: "#FF000080")  // 50% alpha
+     ```
+
+     - Parameter hex: Hex color string
+     - Returns: Color if parsing succeeds, nil otherwise
+     */
     public init?(hex: String) {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -64,14 +66,16 @@ extension Color {
         }
     }
 
-    /// The color as a hex string with `#` prefix.
-    ///
-    /// Returns 6 characters for opaque colors, 8 for colors with alpha.
-    ///
-    /// ```swift
-    /// Color.red.hex  // "#FF0000"
-    /// Color.red.withAlpha(0.5).hex  // "#FF000080"
-    /// ```
+    /**
+     The color as a hex string with `#` prefix.
+
+     Returns 6 characters for opaque colors, 8 for colors with alpha.
+
+     ```swift
+     Color.red.hex  // "#FF0000"
+     Color.red.withAlpha(0.5).hex  // "#FF000080"
+     ```
+     */
     public var hex: String {
         if alpha < 1.0 {
             return String(format: "#%02X%02X%02X%02X", red8, green8, blue8, alpha8)
@@ -88,12 +92,14 @@ extension Color {
 // MARK: - CSS rgba() Format
 
 extension Color {
-    /// The color as a CSS `rgb()` or `rgba()` string.
-    ///
-    /// ```swift
-    /// Color.red.css  // "rgb(255, 0, 0)"
-    /// Color.red.withAlpha(0.5).css  // "rgba(255, 0, 0, 0.5)"
-    /// ```
+    /**
+     The color as a CSS `rgb()` or `rgba()` string.
+
+     ```swift
+     Color.red.css  // "rgb(255, 0, 0)"
+     Color.red.withAlpha(0.5).css  // "rgba(255, 0, 0, 0.5)"
+     ```
+     */
     public var css: String {
         if alpha < 1.0 {
             return "rgba(\(red8), \(green8), \(blue8), \(String(format: "%.2f", alpha)))"
@@ -101,10 +107,12 @@ extension Color {
         return "rgb(\(red8), \(green8), \(blue8))"
     }
 
-    /// Creates a color from a CSS `rgb()` or `rgba()` string.
-    ///
-    /// - Parameter css: CSS color string like `rgb(255, 0, 0)` or `rgba(255, 0, 0, 0.5)`
-    /// - Returns: Color if parsing succeeds, nil otherwise
+    /**
+     Creates a color from a CSS `rgb()` or `rgba()` string.
+
+     - Parameter css: CSS color string like `rgb(255, 0, 0)` or `rgba(255, 0, 0, 0.5)`
+     - Returns: Color if parsing succeeds, nil otherwise
+     */
     public init?(css: String) {
         let trimmed = css.trimmingCharacters(in: .whitespaces)
 

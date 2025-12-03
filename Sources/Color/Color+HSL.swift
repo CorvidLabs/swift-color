@@ -22,12 +22,14 @@ public struct HSL: Sendable, Hashable {
 }
 
 extension Color {
-    /// The color in HSL representation.
-    ///
-    /// ```swift
-    /// let red = Color.red
-    /// print(red.hsl)  // HSL(h: 0, s: 1.0, l: 0.5)
-    /// ```
+    /**
+     The color in HSL representation.
+
+     ```swift
+     let red = Color.red
+     print(red.hsl)  // HSL(h: 0, s: 1.0, l: 0.5)
+     ```
+     */
     public var hsl: HSL {
         let maxC = max(red, green, blue)
         let minC = min(red, green, blue)
@@ -62,23 +64,27 @@ extension Color {
         return HSL(h: h, s: s, l: l)
     }
 
-    /// Creates a color from HSL values.
-    ///
-    /// - Parameters:
-    ///   - h: Hue angle in degrees (0-360)
-    ///   - s: Saturation (0.0 to 1.0)
-    ///   - l: Lightness (0.0 to 1.0)
-    ///   - a: Alpha (0.0 to 1.0), defaults to 1.0
+    /**
+     Creates a color from HSL values.
+
+     - Parameters:
+       - h: Hue angle in degrees (0-360)
+       - s: Saturation (0.0 to 1.0)
+       - l: Lightness (0.0 to 1.0)
+       - a: Alpha (0.0 to 1.0), defaults to 1.0
+     */
     public init(h: Double, s: Double, l: Double, a: Double = 1.0) {
         let hsl = HSL(h: h, s: s, l: l)
         self.init(hsl: hsl, alpha: a)
     }
 
-    /// Creates a color from an HSL value.
-    ///
-    /// - Parameters:
-    ///   - hsl: HSL color value
-    ///   - alpha: Alpha component, defaults to 1.0
+    /**
+     Creates a color from an HSL value.
+
+     - Parameters:
+       - hsl: HSL color value
+       - alpha: Alpha component, defaults to 1.0
+     */
     public init(hsl: HSL, alpha: Double = 1.0) {
         let h = hsl.hue
         let s = hsl.saturation
@@ -118,11 +124,13 @@ extension Color {
 // MARK: - CSS hsl() Format
 
 extension Color {
-    /// The color as a CSS `hsl()` or `hsla()` string.
-    ///
-    /// ```swift
-    /// Color.red.cssHSL  // "hsl(0, 100%, 50%)"
-    /// ```
+    /**
+     The color as a CSS `hsl()` or `hsla()` string.
+
+     ```swift
+     Color.red.cssHSL  // "hsl(0, 100%, 50%)"
+     ```
+     */
     public var cssHSL: String {
         let h = hsl
         if alpha < 1.0 {
