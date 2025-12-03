@@ -1,8 +1,8 @@
 # SwiftColor
 
-![Swift 6.0+](https://img.shields.io/badge/Swift-6.0+-orange.svg)
-![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20visionOS%20%7C%20Linux-blue.svg)
-![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+[![CI](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-color/ci.yml?label=CI&branch=main)](https://github.com/CorvidLabs/swift-color/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/CorvidLabs/swift-color)](https://github.com/CorvidLabs/swift-color/blob/main/LICENSE)
+[![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-color)](https://github.com/CorvidLabs/swift-color/releases)
 
 A pure Swift library for color manipulation, conversion, and palette generation.
 
