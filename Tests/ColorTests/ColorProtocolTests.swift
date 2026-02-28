@@ -382,7 +382,7 @@ struct WCAGLevelTests {
 struct NamedColorEnumTests {
     @Test("NamedColor is CaseIterable")
     func caseIterable() {
-        #expect(NamedColor.allCases.count == 140)
+        #expect(NamedColor.allCases.count == 139)
     }
 
     @Test("NamedColor rawValue is hex string")

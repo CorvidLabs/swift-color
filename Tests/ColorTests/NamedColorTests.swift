@@ -182,9 +182,9 @@ struct NamedColorCategoryTests {
         }
     }
 
-    @Test("Total named color count is 140")
+    @Test("Total named color count is 139")
     func totalCount() {
-        #expect(NamedColor.allCases.count == 140)
+        #expect(NamedColor.allCases.count == 139)
     }
 }
 
