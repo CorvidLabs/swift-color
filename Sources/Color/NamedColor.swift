@@ -1,7 +1,9 @@
 /**
  Standard CSS named colors.
 
- All 140 standard web colors as defined by CSS Color Module Level 4.
+ The standard CSS named colors (139 enum cases). `cyan` and `magenta`
+ are provided as static aliases for `aqua` and `fuchsia` respectively,
+ since they share identical hex values.
 
  ```swift
  let color = Color.named(.coral)
