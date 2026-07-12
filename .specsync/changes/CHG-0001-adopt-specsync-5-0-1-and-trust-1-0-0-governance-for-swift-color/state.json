@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-color",
+  "slug": "adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-color",
+  "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift Color",
+  "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift Color",
+  "kind": "migration",
+  "state": "draft",
+  "base_commit": "15de536d0a18683bcdda7fb3b981af1016bc6ca4",
+  "created_at": 1783885546,
+  "updated_at": 1783885554,
+  "affected_specs": [],
+  "affected_paths": [
+    ".github/",
+    ".specsync/",
+    ".trust.toml",
+    ".augur.toml",
+    ".attest.json",
+    "AGENTS.md",
+    "fledge.toml"
+  ],
+  "no_spec_change": true,
+  "no_spec_change_rationale": "This migration adds governance configuration and CI orchestration without changing Swift Color behavior; future meaningful implementation changes must add or update canonical specifications.",
+  "acceptance_criteria": [
+    "SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; Swift Color builds and all 351 tests pass; existing Linux",
+    "macOS",
+    "and documentation workflows remain green."
+  ],
+  "selected_artifacts": [
+    "context",
+    "research",
+    "design",
+    "plan",
+    "tasks",
+    "testing",
+    "docs"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "yes",
+    "public_contract": "no"
+  }
+}
