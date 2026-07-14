@@ -1,0 +1,25 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1784006174,
+      "digest": "bbd728d2bb4044ec8a3c369c79feec0db8e51af3880537c6a1f1a773309a35fd",
+      "note": "Definition approved after complete nine-file source audit and mapping all 351 tests in 51 suites."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1784006213,
+      "digest": "bbd728d2bb4044ec8a3c369c79feec0db8e51af3880537c6a1f1a773309a35fd",
+      "note": "Definition refreshed after exact 216-export parser coverage including all 139 CSS named-color cases."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1784006296,
+      "digest": "9aad176f13bd34ee587639d626946b2e7aa24393de4b1f4b6ae75e02dabb7a59",
+      "note": "Closing approval after exact 216-export coverage and successful native build plus all 351 tests."
+    }
+  ]
+}
