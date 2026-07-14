@@ -1,3 +1,4 @@
 backup-3x/
 config.local.toml
 hashes.json
+change.lock

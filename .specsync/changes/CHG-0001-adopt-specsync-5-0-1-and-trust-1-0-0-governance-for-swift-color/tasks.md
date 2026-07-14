@@ -5,10 +5,11 @@ artifact: tasks
 
 # Tasks
 
-- [x] Adopt SpecSync 5.0.1 with a no-spec-change rationale.
-- [x] Install all four integrations.
-- [x] Add native build and test verification.
-- [x] Add standard Trust policy and immutable pin.
-- [x] Pass the build and all 351 tests locally.
-- [ ] Obtain authorized definition and closing approvals.
-- [ ] Confirm hosted platform, CodeQL, and Trust checks.
+- [x] Inventory nine source files, seven test files, 51 suites, 351 tests, workflows, and package boundaries.
+- [x] Review every source file and group every suite into requirement evidence.
+- [x] Add a complete active canonical contract and eight stable requirements without modifying product code.
+- [x] Configure complete meaningful paths, 100% coverage, and all four agents.
+- [x] Preserve immutable Trust composition and existing specialized workflows.
+- [x] Extend native workflow filters to verify governance-only pull requests.
+
+Hosted completion and closing approval are lifecycle evidence, not preparation tasks, and are recorded only after their respective checks succeed.

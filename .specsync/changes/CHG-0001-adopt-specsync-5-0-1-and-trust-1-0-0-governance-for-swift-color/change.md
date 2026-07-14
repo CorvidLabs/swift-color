@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-color
-state: draft
+state: accepted
 type: migration
 base_commit: 15de536d0a18683bcdda7fb3b981af1016bc6ca4
 ---
@@ -17,9 +17,10 @@ Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for Swift Color
 
 ## Acceptance Criteria
 
-- SpecSync advisory coverage passes; all four agent integrations are installed; Trust doctor passes; Swift Color builds and all 351 tests pass; existing Linux
-- macOS
-- and documentation workflows remain green.
+- Released SpecSync 5.0.1 governs all nine Swift source files and parsed exports at 100 percent file and line coverage
+- Claude, Cursor, Codex, and Gemini integrations plus Trust doctor and local verification pass
+- The Swift package builds and all 351 tests across 51 suites pass without publishing documentation or a release
+- Existing Linux, macOS, CodeQL, and documentation workflows remain intact and exact pull-request checks pass before merge
 
 ## No-spec Rationale
 

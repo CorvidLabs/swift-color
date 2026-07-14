@@ -5,4 +5,9 @@ artifact: testing
 
 # Testing
 
-Run `specsync check --strict --force` at threshold 0, `specsync agents status`, `fledge trust doctor`, and `fledge lanes run verify`. The blocking lane must build the package and pass all 351 tests. Existing Linux and macOS jobs remain independent platform evidence.
+- Run released `specsync check --strict --require-coverage 100 --force` and require every parsed export plus 1,730/1,730 LOC.
+- Require Claude, Cursor, Codex, and Gemini to report installed.
+- Run `fledge lanes run verify`; require the Swift build and all 351 tests in 51 suites.
+- Run `fledge trust doctor` and `fledge trust verify` after accepted portable evidence.
+- Review the final diff for product changes, incomplete templates, secrets, duplicated gates, and altered release/docs behavior.
+- Require exact-head Ubuntu, macOS, Trust, and CodeQL checks before merge.

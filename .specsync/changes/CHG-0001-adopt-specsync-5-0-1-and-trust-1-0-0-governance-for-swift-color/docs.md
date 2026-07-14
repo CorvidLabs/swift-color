@@ -5,4 +5,4 @@ artifact: docs
 
 # Docs
 
-Managed agent instructions document unified Trust usage. Existing DocC and public API documentation remain unchanged because this migration does not alter behavior or interfaces.
+The new canonical contract records the complete existing API and behavior. Existing DocC source comments and the Pages publication workflow remain unchanged because this migration adds governance documentation only. Public guidance may refer to SpecSync 5 and Trust 1; repository execution remains pinned through immutable workflow composition.

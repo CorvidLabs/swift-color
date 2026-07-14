@@ -5,4 +5,6 @@ artifact: design
 
 # Design
 
-Adopt SpecSync 5.0.1 with a governance-only no-spec-change rationale and all four integrations. Compose the native build and full test suite in Fledge. Run immutable Trust 1.0.0 in the existing Swift 6 Linux environment with blocking risk, progressive provenance, advisory coverage, and Atlas disabled.
+One active `color` contract owns all nine cohesive source files. Eight stable requirements separate core RGBA/protocol semantics, textual/named interchange, HSL/HSV, LAB/LCH, manipulation/blends, accessibility/simulation, palettes/gradients/random values, and repository verification. Test evidence maps every suite group to those requirements.
+
+SpecSync scans `Sources`, governs source/tests/workflows/package/governance/spec paths, and verifies through the Fledge build/test lane. Trust enforces 100% contract coverage, blocking risk, progressive provenance, and disabled Trust-managed Atlas publication.
